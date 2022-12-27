@@ -1,3 +1,7 @@
-export const ContactListElement = ({ name }) => {
-  return <li>{name}</li>;
+export const ContactListElement = ({ name, number }) => {
+  return (
+    <li>
+      {name} : {number}
+    </li>
+  );
 };
