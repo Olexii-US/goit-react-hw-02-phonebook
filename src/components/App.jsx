@@ -56,7 +56,7 @@ export class App extends Component {
     return (
       <div style={{ padding: '40px' }}>
         <h1>Phonebook</h1>
-        <ContactForm addUser={this.addUser} />
+        <ContactForm addUser={this.addUser} contacts={this.state.contacts} />
 
         <h2 style={{ fontSize: '32px' }}>Contacts</h2>
         <Filter addFilterUser={this.addFilterUser} />

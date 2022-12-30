@@ -10,6 +10,13 @@ export class ContactForm extends Component {
 
   static propTypes = {
     addUser: PropTypes.func.isRequired,
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      }).isRequired
+    ),
   };
 
   hendleChange = ({ target: { name, value } }) => {
@@ -20,9 +27,16 @@ export class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { addUser } = this.props;
+    const { addUser, contacts } = this.props;
+    const { name } = this.state;
     addUser({ ...this.state });
-    this.setState({ name: '', number: '' });
+
+    const filteredContacts = contacts.find(
+      item => item.name.toLowerCase() === name.toLowerCase()
+    );
+    if (!filteredContacts) {
+      this.setState({ name: '', number: '' });
+    }
   };
 
   render() {

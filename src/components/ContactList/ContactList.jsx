@@ -24,7 +24,7 @@ ContactListElement.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      email: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     }).isRequired
   ),
 };
